@@ -1,0 +1,1 @@
+chmod +x server_init/build.sh server_init/run.sh server/build.sh server/run.sh client/build.sh client/run.sh git_pull.sh
