@@ -1,4 +1,5 @@
-FROM ubuntu:18.04
+FROM debian:stretch
+
 
 LABEL maintainer="info@enforge.de"
 
