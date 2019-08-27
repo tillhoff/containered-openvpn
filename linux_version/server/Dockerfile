@@ -10,10 +10,15 @@ apt-get install -y openvpn && \
 apt-get clean -y && \
 rm -rf /tmp/* /var/tmp/* /var/cache/apt/* /var/cache/distfiles/*
 
+
+### add custom files
+COPY ./server.conf /server.conf
+
+
 # 4 - start software
 #WORKDIR /etc/openvpn
 EXPOSE 1194/udp
-CMD openvpn /etc/openvpn/server.conf
+CMD openvpn /server.conf
 
 
 #helping comments
