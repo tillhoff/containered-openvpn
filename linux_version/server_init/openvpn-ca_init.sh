@@ -33,5 +33,5 @@ openvpn --genkey --secret /etc/openvpn/ca/keys/ta.key
 cp /etc/openvpn/ca/keys/ca.crt /etc/openvpn/
 cp /etc/openvpn/ca/keys/server.crt /etc/openvpn/
 cp /etc/openvpn/ca/keys/server.key /etc/openvpn/
-cp /etc/openvpn/ca/keys/dh.4096.pem /etc/openvpn/
+cp /etc/openvpn/ca/keys/dh4096.pem /etc/openvpn/
 cp /etc/openvpn/ca/keys/ta.key /etc/openvpn/
