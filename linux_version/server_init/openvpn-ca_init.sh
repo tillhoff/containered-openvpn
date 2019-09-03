@@ -27,3 +27,11 @@ cp /etc/openvpn/ca/openssl-1.0.0.cnf /etc/openvpn/ca/openssl.cnf
 
 # create ta.key
 openvpn --genkey --secret /etc/openvpn/ca/keys/ta.key
+
+
+# copy required files to upper folder
+cp /etc/openvpn/ca/keys/ca.crt /etc/openvpn/
+cp /etc/openvpn/ca/keys/server.crt /etc/openvpn/
+cp /etc/openvpn/ca/keys/server.key /etc/openvpn/
+cp /etc/openvpn/ca/keys/dh.4096.pem /etc/openvpn/
+cp /etc/openvpn/ca/keys/ta.key /etc/openvpn/
