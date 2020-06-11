@@ -1,3 +1,0 @@
-iroute 10.0.0.0 255.0.0.0
-push "redirect-gateway def1 bypass-dhcp"
-push "remote-gateway 192.168.255.1"
