@@ -1,6 +1,7 @@
 FROM tillhoff/debian
 
-RUN apt-get install openvpn
+RUN apt-get install -y \
+  openvpn
 
 COPY ./bin /usr/local/bin
 
