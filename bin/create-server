@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# initialize
 cd /etc/openvpn/ca
 
+# create certificate
 export EASYRSA_REQ_CN="$1"
+./easyrsa build-server-full $1 nopass
 ./easyrsa gen-req $1 nopass
-./easyrsa sign-req server $1
 echo "server created"
