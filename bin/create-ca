@@ -15,7 +15,9 @@ set_var EASYRSA_CA_EXPIRE 3650
 #  days, equals 1 year
 set_var EASYRSA_CERT_EXPIRE 365
 #  options: md5,sha1,sha256,sha224,sha384,sha512
-set_var EASYRSA_DIGEST "sha512"' > ./vars
+set_var EASYRSA_DIGEST "sha512"
+#  set ca common name
+set_var EASYRSA_REQ_CN "ca"' > ./vars
 echo "vars created/overwritten"
 ./easyrsa init-pki
 echo "PKI initialized"
@@ -32,5 +34,4 @@ echo "DH created"
 openvpn --genkey --secret ta.key
 
 # move files
-cp /etc/openvpn/ca/pki/{*.crt,dh.pem,ta.key} /etc/openvpn
-
+cp /etc/openvpn/ca/pki/{*.crt,dh.pem,ta.key} /etc/openvpn/
