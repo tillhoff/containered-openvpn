@@ -4,10 +4,10 @@ I don't want to use the most popular [openvpn image of Kylemanna](https://github
 
 ## usage
 
-Data is stored in a volume at `/etc/openvpn`.
+- First, create a ca with `CANAME=<ca-name> task create-ca`.
 
-First run the image with `docker run -it --rm -v $PWD/openvpn:/etc/openvpn tillhoff/openvpn create-ca`.
+- Next create your required certificates with either `SERVERNAME=<server-name> task create-server` or `CLIENTNAME=<client-name> task create-client` respectively
 
-To create certificates, run `docker run -it --rm -v $PWD/openvpn:/etc/openvpn tillhoff/openvpn create-server <servername>` or `docker run -it --rm -v $PWD/openvpn:/etc/openvpn tillhoff/openvpn create-client <clientname>`, respectively.
+- To run openvpn with a config file, run either `task run-server` or `task run-client`. Make sure to edit at least the IP addresses marked with `X.X.X.X`.
 
-To run openvpn with a config file, run `docker run -it --rm -v $PWD/<server|client>.conf:/etc/openvpn/openvpn.conf tillhoff/openvpn`.
+> Data is stored in `./config`.
