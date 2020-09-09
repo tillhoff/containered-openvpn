@@ -8,12 +8,12 @@ dotenv:
 tasks:
   create-ca:
     cmds:
-      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-ca
+      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-ca $CANAME
 
   create-server:
     cmds:
-      - docker run -it --rm -v $PWD/config:/etc/openvpn tillhoff/openvpn create-server $SERVERNAME
+      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-server $SERVERNAME
 
   create-client:
     cmds:
-      - docker run -it --rm -v $PWD/config:/etc/openvpn tillhoff/openvpn create-client $CLIENTNAME
+      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-client $CLIENTNAME

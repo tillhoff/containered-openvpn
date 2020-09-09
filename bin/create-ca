@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # initializing
+export EASYRSA_REQ_CN="$1"
 make-cadir /etc/openvpn/ca
 cd /etc/openvpn/ca
-./easyrsa init-pki
 
 # configure easyrsa
 echo 'set_var EASYRSA_BATCH "1"
@@ -15,8 +15,10 @@ set_var EASYRSA_CA_EXPIRE 3650
 #  days, equals 1 year
 set_var EASYRSA_CERT_EXPIRE 365
 #  options: md5,sha1,sha256,sha224,sha384,sha512
-set_var EASYRSA_DIGEST "sha512"' > /etc/openvpn/ca/vars
+set_var EASYRSA_DIGEST "sha512"' > ./vars
 echo "vars created/overwritten"
+./easyrsa init-pki
+echo "PKI initialized"
 
 # create ca
 ./easyrsa build-ca nopass
@@ -25,3 +27,10 @@ echo "CA created"
 # create dh
 ./easyrsa gen-dh
 echo "DH created"
+
+# create HMAC code
+openvpn --genkey --secret ta.key
+
+# move files
+cp /etc/openvpn/ca/pki/{*.crt,dh.pem,ta.key} /etc/openvpn
+
