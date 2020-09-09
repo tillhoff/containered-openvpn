@@ -12,10 +12,12 @@ export EASYRSA_ALGO=rsa
 export EASYRSA_CA_EXPIRE=3650
 export EASYRSA_CERT_EXPIRE=365
 export EASYRSA_DIGEST=sha512
+export EASYRSA_REQ_CN="$1"
 
 ./easyrsa init-pki
 
 # create ca
+echo $EASYRSA_REQ_CN
 ./easyrsa build-ca nopass
 echo "CA created"
 
