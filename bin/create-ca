@@ -17,7 +17,7 @@ export EASYRSA_REQ_CN="$1"
 ./easyrsa init-pki
 
 # create ca
-echo $EASYRSA_REQ_CN
+echo "EASYRSA_REQ_VN: $EASYRSA_REQ_CN"
 ./easyrsa build-ca nopass
 echo "CA created"
 
