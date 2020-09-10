@@ -14,5 +14,4 @@ export EASYRSA_REQ_CN="$1"
 
 # create certificate
 ./easyrsa build-server-full nopass
-./easyrsa gen-req nopass
 echo "server created"
