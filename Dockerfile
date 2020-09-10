@@ -5,6 +5,8 @@ RUN apt-get install -y \
 
 COPY ./bin /usr/local/bin
 
+RUN modprobe tun
+
 VOLUME ["/etc/openvpn"]
 
 EXPOSE 1194/udp
