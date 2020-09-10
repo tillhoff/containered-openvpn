@@ -13,5 +13,5 @@ export EASYRSA_DIGEST=sha512
 export EASYRSA_REQ_CN="$1"
 
 # create certificate
-./easyrsa build-server-full nopass
+./easyrsa build-server-full "$1" nopass
 echo "server created"
