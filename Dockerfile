@@ -5,7 +5,7 @@ RUN apt-get install -y \
 
 COPY ./bin /usr/local/bin
 
-RUN mkdir /dev/net && modprobe tun
+RUN mkdir -p /dev/net && mknod /dev/net/tun c 10 200
 
 VOLUME ["/etc/openvpn"]
 
