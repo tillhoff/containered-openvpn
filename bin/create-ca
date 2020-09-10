@@ -26,6 +26,3 @@ echo "DH created"
 
 # create HMAC code
 openvpn --genkey --secret ta.key
-
-# move files
-cp /etc/openvpn/ca/{pki/*.crt,pki/dh.pem,ta.key} /etc/openvpn/
