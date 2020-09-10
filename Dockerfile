@@ -5,10 +5,8 @@ RUN apt-get install -y \
 
 COPY ./bin /usr/local/bin
 
-RUN mkdir -p /dev/net && mknod /dev/net/tun c 10 200
-
 VOLUME ["/etc/openvpn"]
 
 EXPOSE 1194/udp
 
-CMD openvpn /openvpn.conf
+CMD mkdir -p /dev/net && mknod /dev/net/tun c 10 200 && openvpn /openvpn.conf
