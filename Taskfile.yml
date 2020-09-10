@@ -7,7 +7,7 @@ dotenv:
 
 tasks:
 
-  run-all:
+  setup:
     cmds:
       - task: set-ip
       - task: create-ca
