@@ -20,8 +20,8 @@ tasks:
 
   run-server:
     cmds:
-      docker run --rm -v $PWD/config:/etc/openvpn $PWD/server.conf:/etc/openvpn/openvpn.conf tillhoff/openvpn
+      - docker run --rm -v $PWD/config:/etc/openvpn -v $PWD/server.conf:/etc/openvpn/openvpn.conf tillhoff/openvpn
   
   run-client:
     cmds:
-      docker run --rm -v $PWD/config:/etc/openvpn $PWD/client.conf:/etc/openvpn/openvpn.conf tillhoff/openvpn
+      - docker run --rm -v $PWD/config:/etc/openvpn -v $PWD/client.conf:/etc/openvpn/openvpn.conf tillhoff/openvpn
