@@ -35,7 +35,7 @@ tasks:
   
   run-client:
     cmds:
-      - docker run --cap-add=NET_ADMIN --network="host" --rm -v $PWD/config:/etc/openvpn -v $PWD/client.conf:/openvpn.conf tillhoff/openvpn openvpn -remote <address> <port> <proto> /etc/openvpn/openvpn.conf
+      - docker run --cap-add=NET_ADMIN --network="host" --rm -v $PWD/config:/etc/openvpn -v $PWD/client.conf:/openvpn.conf tillhoff/openvpn
 
   set-ip:
     cmds:
