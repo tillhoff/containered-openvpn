@@ -25,6 +25,9 @@ tasks:
   create-client:
     cmds:
       - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-client $CLIENTNAME
+      - mkdir $CLIENTNAME
+      - cp ./config/ca/{pki/ca.crt,pki/dh.pem,ta.key,pki/issued/$CLIENTNAME.crt,pki/private/$CLIENTNAME.key} ./$CLIENTNAME/
+      - echo "Bundle created at ./$CLIENTNAME/"
 
   run-server:
     cmds:
