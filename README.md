@@ -11,3 +11,7 @@ I don't want to use the most popular [openvpn image of Kylemanna](https://github
 - To run openvpn with a config file, run either `task run-server` or `task run-client`. Make sure to edit at least the IP addresses marked with `X.X.X.X`.
 
 > Data is stored in `./config`.
+
+To configure the `client.conf` and `server.conf` with the ip of the server, run `task set-ip`.
+
+> You can run all these tasks automatically with `task setup`.
