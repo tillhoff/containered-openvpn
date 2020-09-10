@@ -11,4 +11,4 @@ VOLUME ["/etc/openvpn"]
 
 EXPOSE 1194/udp
 
-CMD openvpn /etc/openvpn/openvpn.conf
+CMD openvpn /openvpn.conf
