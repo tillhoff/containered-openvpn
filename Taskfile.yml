@@ -39,5 +39,5 @@ tasks:
 
   set-ip:
     cmds:
-      - sed -i "s|^local.*|local $(curl ipinfo.io/ip)|" server.conf
-      - sed -i "s|^remote.*|remote $(curl ipinfo.io/ip) 1194|" client.conf
+      - sed -i "s|^local.*|local $(curl --silent ipinfo.io/ip)|" server.conf
+      - sed -i "s|^remote.*|remote $(curl --silent ipinfo.io/ip) 1194|" client.conf
