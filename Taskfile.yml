@@ -16,26 +16,26 @@ tasks:
 
   create-ca:
     cmds:
-      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-ca $CANAME
+      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) thetillhoff/openvpn create-ca $CANAME
 
   create-server:
     cmds:
-      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-server $SERVERNAME
+      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) thetillhoff/openvpn create-server $SERVERNAME
 
   create-client:
     cmds:
-      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) tillhoff/openvpn create-client $CLIENTNAME
+      - docker run -it --rm -v $PWD/config:/etc/openvpn --user $(id -u):$(id -g) thetillhoff/openvpn create-client $CLIENTNAME
       - mkdir $CLIENTNAME
       - cp ./config/ca/{pki/ca.crt,pki/dh.pem,ta.key,pki/issued/$CLIENTNAME.crt,pki/private/$CLIENTNAME.key} ./$CLIENTNAME/
       - echo "Bundle created at ./$CLIENTNAME/"
 
   run-server:
     cmds:
-      - docker run --cap-add=NET_ADMIN --network="host" --rm -v $PWD/config:/etc/openvpn -v $PWD/server.conf:/openvpn.conf tillhoff/openvpn
+      - docker run --cap-add=NET_ADMIN --network="host" --rm -v $PWD/config:/etc/openvpn -v $PWD/server.conf:/openvpn.conf thetillhoff/openvpn
   
   run-client:
     cmds:
-      - docker run --cap-add=NET_ADMIN --network="host" --rm -v $PWD/config:/etc/openvpn -v $PWD/client.conf:/openvpn.conf tillhoff/openvpn
+      - docker run --cap-add=NET_ADMIN --network="host" --rm -v $PWD/config:/etc/openvpn -v $PWD/client.conf:/openvpn.conf thetillhoff/openvpn
 
   set-ip:
     cmds:
